@@ -51,5 +51,6 @@ Acknowledgments
 This work is inspired by CERN’s efforts to enhance computational efficiency for the HL-LHC. Special thanks to the open-source community for tools like LaTeX, Python, and Matplotlib.
 
 Author
+___
 •  Name: Teodor Berger
 •  Email: bergerteodor@googlemail.com
