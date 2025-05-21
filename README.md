@@ -52,7 +52,7 @@ This work is inspired by CERN’s efforts to enhance computational efficiency fo
 
 # Citation
 Please cite this work as:
-```
+```bash
 Berger, T. (2025). Optimizing Task Allocation in the LHC Computing Grid for the High-Luminosity LHC Using a Heuristic Approach. Zenodo. https://doi.org/10.5281/zenodo.15477551
 ```
 Author
