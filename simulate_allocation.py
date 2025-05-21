@@ -2,21 +2,21 @@ import numpy as np
 import math
 import random
 
-# Parameters from the paper (Section 2.2, N=50, M=500)
-N = 50  # Number of nodes
-M = 500  # Number of tasks
+# Parameters from the paper (Section 2.2, updated for new scenario)
+N = 100  # Number of nodes (50 CPU + 50 GPU)
+M = 1000  # Number of tasks
 T_max = 86400  # Maximum duration (1 day in seconds)
 alpha = 0.6  # Weight for T_total
 beta = 0.4  # Weight for E_total
 cost_per_kwh = 0.2  # Energy cost (€/kWh)
 
-# Node specifications (25 CPU + 25 GPU)
+# Node specifications (50 CPU + 50 GPU)
 nodes = [
     {"type": "CPU", "c_i": 15e12, "P_TDP": 400, "f_i": 2.8, "f_max": 4.0, "M_i": 2e12, "B_i": 25e9}
-    for _ in range(25)
+    for _ in range(50)
 ] + [
     {"type": "GPU", "c_i": 30e12, "P_TDP": 800, "f_i": 4.0, "f_max": 4.0, "M_i": 2e12, "B_i": 25e9}
-    for _ in range(25)
+    for _ in range(50)
 ]
 
 # Task specifications
@@ -27,11 +27,11 @@ PUE_uniform = 1.4
 PUE_optimized = 1.2
 E_trans = 0.08  # J/GB
 
-# Simulated Annealing parameters
-T_0 = 1000
+# Simulated Annealing parameters (updated)
+T_0 = 1000 * math.sqrt(N * M / 25000)  # Dynamic T_0 based on N and M
 T_min = 0.01
-alpha_SA = 0.95
-max_iter = 1000
+alpha_SA = 0.9  # Faster cooling
+max_iter = 500  # Reduced iterations
 
 def compute_task_metrics(node, task, PUE):
     """Compute the processing time and energy for a task on a given node."""
@@ -169,13 +169,13 @@ def simulated_annealing(nodes, tasks, initial_allocation, PUE):
 def main():
     print("Simulating uniform allocation...")
     # Uniform allocation (all tasks to CPUs)
-    uniform_allocation = [i % 25 for i in range(M)]  # Use only CPU nodes (0–24)
+    uniform_allocation = [i % 50 for i in range(M)]  # Use only CPU nodes (0–49)
     T_total_uniform, E_total_uniform, _, gpu_tasks_uniform = compute_cost(
         uniform_allocation, nodes, tasks, PUE_uniform
     )
     cost_uniform = E_total_uniform / 3.6e6 * cost_per_kwh
 
-    print(f"Uniform Allocation:")
+    print(f"Uniform Allocation (N={N}, M={M}):")
     print(f"  T_total: {T_total_uniform:.0f} s ({T_total_uniform/3600:.1f} hours)")
     print(f"  E_total: {E_total_uniform/3.6e6:.0f} kWh")
     print(f"  Cost: {cost_uniform:.1f} €")
@@ -190,7 +190,7 @@ def main():
     )
     cost_opt = E_total_opt / 3.6e6 * cost_per_kwh
 
-    print(f"Optimized Allocation:")
+    print(f"Optimized Allocation (N={N}, M={M}):")
     print(f"  T_total: {T_total_opt:.0f} s ({T_total_opt/3600:.1f} hours)")
     print(f"  E_total: {E_total_opt/3.6e6:.0f} kWh")
     print(f"  Cost: {cost_opt:.1f} €")
