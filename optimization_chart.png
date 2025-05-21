@@ -1,0 +1,6 @@
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{optimization_chart.png}
+    \caption{\texorpdfstring{Optimization results for HL-LHC Computing Grid ($N=50$, $M=500$)}{Optimization results for HL-LHC Computing Grid (N=50, M=500)}: energy consumption, processing time, GPU task allocation, and cost.}
+    \label{fig:results}
+\end{figure}
