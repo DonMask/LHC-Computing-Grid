@@ -18,7 +18,8 @@ The paper is published on Zenodo with DOI: [10.5281/zenodo.15477551](https://doi
 - `main.tex`: LaTeX source for the paper.
 - `optimization_chart.png`: Bar chart of optimization results.
 - `generate_chart.py`: Python script to generate `optimization_chart.png`.
-
+- `simulate_allocation.py`: Simulation Script
+  
 ## Installation and Usage
 ### Prerequisites
 - Python 3.x with `matplotlib` and `numpy` for chart generation.
