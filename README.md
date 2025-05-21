@@ -39,6 +39,9 @@ pdflatex main.tex
 ```
 Or upload to Overleaf and compile with default settings.
 
+## Simulation Script
+- `simulate_allocation.py`: Implements the greedy + simulated annealing algorithm to simulate task allocation for the LHC Computing Grid. Reproduces results from Section 3.1 (36% energy savings, 3.6% time reduction).
+
 ## License
 This project is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license. You are free to:
 •  Share: Copy and redistribute the material in any medium or format.
