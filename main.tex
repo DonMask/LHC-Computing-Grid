@@ -13,7 +13,7 @@
 \usepackage{url} % Added for proper URL formatting
 
 \title{Optimizing Task Allocation in the LHC Computing Grid for the High-Luminosity LHC Using a Heuristic Approach}
-\author{Teodor Berger} 
+\author{Teodor Berger}
 \date{May 2025}
 
 \begin{document}
@@ -70,12 +70,7 @@ Based on 2025 specifications:
 
 \subsection{Heuristic Algorithm}
 For large $N=170$ and $M=5000$, linear programming is computationally intensive. We propose a hybrid algorithm:
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.85\textwidth]{optimization_chart.png}
-    \caption{Optimization of HL-LHC computing grid: energy, time, GPU usage, and cost.}
-    \label{fig:optimization_chart}
-\end{figure}
+
 \begin{algorithm}
 \caption{Greedy + Simulated Annealing for Task Allocation}
 \begin{algorithmic}
@@ -127,6 +122,13 @@ For large $N=170$ and $M=5000$, linear programming is computationally intensive.
   - Cost: $1,854 \cdot 0.2 = 370.8$ €.
   - Savings: 1,053 kWh (36\%), 210.6 €.
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{optimization_chart.png}
+    \caption{\texorpdfstring{Optimization results for HL-LHC Computing Grid ($N=50$, $M=500$)}{Optimization results for HL-LHC Computing Grid (N=50, M=500)}: energy consumption, processing time, GPU task allocation, and cost.}
+    \label{fig:results}
+\end{figure}
+
 \subsection{Extrapolation: \texorpdfstring{$N=170$, $M=5000$}{N=170, M=5000}}
 - **Uniform**:
   - $T_{\text{total}} = \frac{5000 \cdot 37,333}{170} = 1,098,029$ s ($\approx 305$ hours).
@@ -141,14 +143,6 @@ For large $N=170$ and $M=5000$, linear programming is computationally intensive.
 \subsection{Validation}
 The 36\% energy reduction exceeds CERN’s 17.4\% target \cite{CERNABB2025}. The time reduction aligns with HL-LHC requirements \cite{HL-LHC2025}. The heuristic scales efficiently, solving in minutes.
 
-% Uncomment when optimization_chart.png is uploaded
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=0.8\textwidth]{optimization_chart.png}
-%     \caption{\texorpdfstring{Optimization results for HL-LHC Computing Grid ($N=50$, $M=500$)}{Optimization results for HL-LHC Computing Grid (N=50, M=500)}: energy consumption, processing time, GPU task allocation, and cost.}
-%     \label{fig:results}
-% \end{figure}
-
 \section{Conclusion}
 This study presents a scalable solution for optimizing task allocation in the LHC Computing Grid for HL-LHC, achieving a 36\% reduction in energy consumption (384 GWh/year for 100 clusters) and a 3.6\% reduction in processing time. The hybrid heuristic algorithm ensures computational efficiency for large-scale grids. Future work includes integrating machine learning for node capacity prediction and testing with post-2028 HL-LHC data. The model is ready for implementation in CERN’s PanDA system and publication in high-impact journals.
 
@@ -162,14 +156,13 @@ LHC Computing Grid, ``Technical Specifications and Performance Metrics,'' \url{h
 \bibitem{CERNABB2025}
 CERN and ABB, ``Energy Efficiency in CERN Data Centers,'' \url{https://home.cern/news/energy}, 2025.
 \bibitem{CERNNetwork2025}
-CERN, ``Network Upgrades for HL-LHC,'' 
-\url{https://networking.cern.ch}, 2025.
+CERN, ``Network Upgrades for HL-LHC,'' \url{https://networking.cern.ch}, 2025.
 \bibitem{CERNDataCenter2025}
 CERN, ``New Data Center with Heat Recovery,'' \url{https://datacenter.cern.ch}, 2025.
 \bibitem{AMD2025}
 AMD, ``EPYC 9005 Series Specifications,'' \url{https://www.amd.com/en/processors/epyc}, 2025.
 \bibitem{NVIDIA2025}
-NVIDIA, ``H100 GPU Technical Overview,'' \href{https://www.nvidia.com/en-us/data-center/h100}{nvidia.com/h100}, 2025.
+NVIDIA, ``H100 GPU Technical Overview,'' \url{https://www.nvidia.com/en-us/data-center/h100}, 2025.
 \end{thebibliography}
 
 \end{document}
