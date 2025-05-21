@@ -50,6 +50,11 @@ See the LICENSE file for the full license text.
 Acknowledgments
 This work is inspired by CERN’s efforts to enhance computational efficiency for the HL-LHC. Special thanks to the open-source community for tools like LaTeX, Python, and Matplotlib.
 
+# Citation
+Please cite this work as:
+```
+Berger, T. (2025). Optimizing Task Allocation in the LHC Computing Grid for the High-Luminosity LHC Using a Heuristic Approach. Zenodo. https://doi.org/10.5281/zenodo.15477551
+```
 Author
 ___
 •  Name: Teodor Berger
