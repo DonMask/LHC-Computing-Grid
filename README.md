@@ -16,7 +16,7 @@ The paper is published on Zenodo with DOI: [10.5281/zenodo.15477551](https://doi
 - `README.md`: Project overview and instructions.
 - `main.pdf`: Compiled paper.
 - `main.tex`: LaTeX source for the paper.
-- `optimization_chart.png`: Bar chart of optimization results.
+- `optimization_chart.png`: Bar chart of optimization results. `optimization_chart_v2.png` (New)
 - `generate_chart.py`: Python script to generate `optimization_chart.png`.
 - `simulate_allocation.py`: Simulation Script
   
