@@ -70,7 +70,12 @@ Based on 2025 specifications:
 
 \subsection{Heuristic Algorithm}
 For large $N=170$ and $M=5000$, linear programming is computationally intensive. We propose a hybrid algorithm:
-
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{optimization_chart.png}
+    \caption{Optimization of HL-LHC computing grid: energy, time, GPU usage, and cost.}
+    \label{fig:optimization_chart}
+\end{figure}
 \begin{algorithm}
 \caption{Greedy + Simulated Annealing for Task Allocation}
 \begin{algorithmic}
